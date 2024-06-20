@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">最初のKotlin</string>
+    <string name="Wishes">ベネタさんお誕生日おめでとう!!</string>
+    <string name="NameString">あなたの名前を入力してください</string>
+    <string name="PasswordString">パスワードを入力してください</string>
+    <string name="NameHint">名前</string>
+    <string name="PasswordHint">パスワード</string>
+    <string name="Title">ログインページ</string>
+    <string name="loginButton">ログイン</string>
+</resources>

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">FirstKotlin</string>
     <string name="Wishes">Happy Birthday Beneta!!</string>
+    <string name="NameString">Enter your Name</string>
+    <string name="PasswordString">Enter you Password</string>
+    <string name="NameHint">Name</string>
+    <string name="PasswordHint">Password</string>
+    <string name="Title">Login Page</string>
+    <string name="loginButton">Login</string>
 </resources>
