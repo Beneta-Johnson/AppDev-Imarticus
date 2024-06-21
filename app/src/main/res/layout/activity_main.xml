@@ -15,35 +15,25 @@
         android:layout_marginStart="46dp"
         android:layout_marginTop="68dp"
         android:ems="10"
-        android:hint="enter your name"
+        android:hint="@string/hint_entername"
         android:inputType="text"
         android:minHeight="48dp"
         android:textColor="@color/mycolor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- this color is defined in my apps colors.xml
-    android:textColor="@color/mycolor"
--->
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="@dimen/myedittextwidth"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:ems="10"
-        android:hint="enter your pin"
+        android:hint="@string/hint_enterpin"
         android:inputType="numberPassword"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="@+id/editTextText"
         app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
-    <!--these colors are defined in android os
-    android:textColor="@android:color/holo_blue_light"-->
-
-
-    <!--
- dp = density independent pixels
--->
     <Button
         android:id="@+id/button"
         android:layout_width="100dp"
@@ -53,10 +43,6 @@
         android:textColor="@android:color/holo_blue_light"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
-
-    <!--
-        sp = scale independent pixels
-    -->
 
     <TextView
         android:id="@+id/textView"
