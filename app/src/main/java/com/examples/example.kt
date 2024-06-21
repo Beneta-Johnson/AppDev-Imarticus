@@ -1,6 +1,7 @@
 package com.examples
 
 fun main() {
+    var androidTeacher : Teacher = Teacher("abdul",111,"abc")
     println("hello world");
     var myStudent: Student = Student("abdul",123,"bangalore")
     println(myStudent.name)
