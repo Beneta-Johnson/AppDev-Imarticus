@@ -4,15 +4,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.firstkotlin.databinding.ActivityHomeBinding
 import com.example.firstkotlin.R
+import com.example.firstkotlin.databinding.ActivityHomeBinding
 import com.examples.MarsApi
 import com.examples.MarsPhoto
 import kotlinx.coroutines.Dispatchers
@@ -20,11 +22,12 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.Dispatcher
 
-
+//wet code --- dry code -- repetative lines removed
 class HomeActivity : AppCompatActivity(){
     var TAG = HomeActivity::class.java.simpleName    //"HomeActivity"
 
     private lateinit var binding: ActivityHomeBinding
+    val photoMarsDatabinding = MarsPhoto("007","moonimage.com")
 
     //lateinit var marsRecyclerView:RecyclerView
     lateinit var marsAdapter: MarsAdapter
@@ -34,10 +37,10 @@ class HomeActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        // setContentView(R.layout.activity_home)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        val binding: ActivityHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+        /* var homeTextView:TextView = findViewById(R.id.tvHome)
+         homeTextView.setText(photoMarsDatabinding.imgSrc)*/
+        binding.marsphotoxml = photoMarsDatabinding
 
         // imageView = findViewById(R.id.imageView)
         // marsRecyclerView = findViewById(R.id.recyclerViewUrls)
