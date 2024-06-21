@@ -35,6 +35,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.w(TAG,"activity has resumed")
+    }
+
     override fun onStop() {
         super.onStop()
         Log.d(TAG,"activity is stopped")
@@ -54,6 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         var hIntent:Intent = Intent(this,HomeActivity::class.java)
         hIntent.putExtra("mykey","android-Beneta")
+        throw NullPointerException("Demo VIT Exception")
         startActivity(hIntent)
     }
     fun inflateXml(){
