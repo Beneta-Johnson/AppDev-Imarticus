@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.firstkotlin.R
 import com.examples.MarsApi
 import com.examples.MarsPhoto
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import okhttp3.Dispatcher
 
 class HomeActivity : AppCompatActivity(){
-    var TAG = HomeActivity::class.java.simpleName
+    var TAG = HomeActivity::class.java.simpleName    //"HomeActivity"
 
     lateinit var marsRecyclerView:RecyclerView
     lateinit var marsAdapter: MarsAdapter
@@ -32,7 +34,6 @@ class HomeActivity : AppCompatActivity(){
         marsAdapter = MarsAdapter(photos)
         marsRecyclerView.adapter = marsAdapter
 
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -44,10 +45,10 @@ class HomeActivity : AppCompatActivity(){
 
 
     private fun getMarsPhotos() {
-        GlobalScope.launch {
-
+        GlobalScope.launch(Dispatchers.Main) {
             var listMarsPhotos =   MarsApi.retrofitService.getPhotos()
-            photos = listMarsPhotos
+            // photos = listMarsPhotos
+            marsAdapter.listMarsPhotos = listMarsPhotos
             marsAdapter.notifyDataSetChanged()
             //   var tvHome:TextView = findViewById(R.id.tvHome)
 //            tvHome.setText(listMarsPhotos.get(1).imgSrc)
