@@ -1,6 +1,8 @@
 package com.examples
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,5 +19,9 @@ class HomeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        var data = intent.extras?.getString("mykey")
+        Log.i("homeactivity",data.toString())
+        var homeTextView: TextView = findViewById(R.id.tvHome)
+        homeTextView.setText(data)
     }
 }
