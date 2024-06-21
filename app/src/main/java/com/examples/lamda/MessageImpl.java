@@ -1,6 +1,8 @@
-package com.examples;
+package com.examples.lamda;
 
-public class MessageImpl implements IMessage{
+import com.examples.lamda.IMessage;
+
+public class MessageImpl implements IMessage {
     @Override
     public void sendMessage() {
         System.out.println("sending message from impl");

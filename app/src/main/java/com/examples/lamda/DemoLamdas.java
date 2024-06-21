@@ -1,4 +1,4 @@
-package com.examples;
+package com.examples.lamda;
 
 public class DemoLamdas {
 
