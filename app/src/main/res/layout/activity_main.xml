@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/myedittextwidth"
 
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
@@ -22,9 +22,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- this color is defined in my apps colors.xml
+     android:textColor="@color/mycolor"
+ -->
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/myedittextwidth"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:ems="10"
@@ -34,14 +37,20 @@
         app:layout_constraintStart_toStartOf="@+id/editTextText"
         app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
+    <!--these colors are defined in android os
+    android:textColor="@android:color/holo_blue_light"-->
+
+
+    <!--
+     dp = density independent pixels
+    -->
     <Button
         android:id="@+id/button"
         android:textColor="@android:color/holo_blue_light"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
         android:text="login"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
