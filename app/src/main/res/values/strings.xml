@@ -1,10 +1,8 @@
 <resources>
     <string name="app_name">FirstKotlin</string>
-    <string name="Wishes">Happy Birthday Beneta!!</string>
-    <string name="NameString">Enter your Name</string>
-    <string name="PasswordString">Enter you Password</string>
-    <string name="NameHint">Name</string>
-    <string name="PasswordHint">Password</string>
-    <string name="Title">Login Page</string>
-    <string name="loginButton">Login</string>
+    <string name="Title">Welcome to our App!!</string>
+    <string name="intro">Please choose which action to perform</string>
+    <string name="dial">Dial a Number</string>
+    <string name="alarm">Set an Alarm</string>
+    <string name="alarm_title">Alarm</string>
 </resources>

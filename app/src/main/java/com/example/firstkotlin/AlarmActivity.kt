@@ -2,35 +2,36 @@ package com.example.firstkotlin
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class AlarmActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_alarm)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val DialButton = findViewById<Button>(R.id.dialbutton)
-        val AlarmButton = findViewById<Button>(R.id.alarmbutton)
+        val msg = findViewById<EditText>(R.id.alarmMsg)
+        val hours = findViewById<EditText>(R.id.alarmHour)
+        val mins = findViewById<EditText>(R.id.alarmMin)
+        val setButton = findViewById<Button>(R.id.alarmCreate)
 
-        DialButton.setOnClickListener {
-            val intent = Intent(this, DialActivity::class.java)
+        setButton.setOnClickListener{
+            val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+                putExtra(AlarmClock.EXTRA_MESSAGE, msg.text.toString())
+                putExtra(AlarmClock.EXTRA_HOUR, hours.text.toString().toInt())
+                putExtra(AlarmClock.EXTRA_MINUTES, mins.text.toString().toInt())
+            }
             startActivity(intent)
-        }
-        AlarmButton.setOnClickListener {
-            val intent = Intent(this, AlarmActivity::class.java)
-            startActivity(intent)
-
         }
     }
 }

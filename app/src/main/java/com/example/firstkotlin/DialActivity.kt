@@ -1,36 +1,32 @@
 package com.example.firstkotlin
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class DialActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_dial)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val DialButton = findViewById<Button>(R.id.dialbutton)
-        val AlarmButton = findViewById<Button>(R.id.alarmbutton)
+        val phone = findViewById<EditText>(R.id.phoneNum)
+        val dialButton = findViewById<Button>(R.id.dialer)
 
-        DialButton.setOnClickListener {
-            val intent = Intent(this, DialActivity::class.java)
+        dialButton.setOnClickListener{
+            val u = Uri.parse("tel:" + phone.text.toString())
+            val intent = Intent(Intent.ACTION_DIAL, u)
             startActivity(intent)
-        }
-        AlarmButton.setOnClickListener {
-            val intent = Intent(this, AlarmActivity::class.java)
-            startActivity(intent)
-
         }
     }
 }
