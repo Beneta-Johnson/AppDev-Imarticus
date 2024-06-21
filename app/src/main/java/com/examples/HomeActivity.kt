@@ -12,19 +12,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.firstkotlin.R
+import com.examples.MarsApiService
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
-    AdapterView.OnItemClickListener {
+class HomeActivity : AppCompatActivity(){
     var TAG = HomeActivity::class.java.simpleName
-    lateinit var mySpinner: Spinner
-    lateinit var myListview: ListView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
-        mySpinner = findViewById(R.id.spinner)
-        myListview = findViewById(R.id.listView)
-        myListview.isClickable = true
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -32,21 +31,20 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             insets
         }
 
-        mySpinner.onItemSelectedListener = this
-        myListview.setOnItemClickListener(this)
 
     }
 
-    override fun onItemSelected(adpater: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        var item:String = adpater?.getItemAtPosition(position).toString()
-        Log.i(TAG, item )
+
+    private fun getMarsPhotos() {
+        GlobalScope.launch {
+
+            var jsonString =   MarsApi.retrofitService.getPhotos()
+            Log.i("homeactivity",jsonString)
+        }
     }
 
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("Not yet implemented")
+    fun getJson(view: View) {
+        getMarsPhotos()
     }
 
-    override fun onItemClick(adpater: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        var item:String = adpater?.getItemAtPosition(position).toString()
-        Log.i(TAG, item )    }
 }
