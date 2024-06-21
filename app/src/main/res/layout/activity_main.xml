@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#A4B0BF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A4B0BF"
     tools:context=".MainActivity">
 
     <EditText
@@ -23,8 +23,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- this color is defined in my apps colors.xml
-     android:textColor="@color/mycolor"
- -->
+    android:textColor="@color/mycolor"
+-->
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="@dimen/myedittextwidth"
@@ -42,15 +42,30 @@
 
 
     <!--
-     dp = density independent pixels
-    -->
+ dp = density independent pixels
+-->
     <Button
         android:id="@+id/button"
-        android:textColor="@android:color/holo_blue_light"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
         android:text="login"
+        android:textColor="@android:color/holo_blue_light"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <!--
+        sp = scale independent pixels
+    -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="39dp"
+        android:textSize="25sp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
