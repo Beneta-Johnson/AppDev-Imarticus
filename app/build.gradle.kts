@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation("junit:junit:4.12")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
     testImplementation(kotlin("test"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

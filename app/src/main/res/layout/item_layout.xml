@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    >
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/image"
+        android:layout_marginRight="25dp"
+    />
+
+    <TextView
+        android:id="@+id/names"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_toEndOf="@+id/image"
+    />
+
+    <TextView
+        android:id="@+id/mail"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="Email@gmail.com"
+        android:textColor="@color/black"
+        android:layout_toEndOf="@+id/image"
+        android:layout_below="@+id/names"
+        android:layout_marginTop="1dp"
+    />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        android:layout_below="@+id/image"
+        android:layout_marginTop="10dp"
+    />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/mail"
+    />
+
+
+</RelativeLayout>
