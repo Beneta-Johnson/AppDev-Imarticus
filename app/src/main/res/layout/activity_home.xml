@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.examples.HomeActivity">
+    tools:context="com.example.vitbatch1.HomeActivity">
 
     <TextView
         android:id="@+id/tvHome"
@@ -26,6 +26,15 @@
         android:text="insert db"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnFind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:text="find"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnDbInsert"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

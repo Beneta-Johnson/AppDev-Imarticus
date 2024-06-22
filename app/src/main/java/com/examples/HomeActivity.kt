@@ -1,4 +1,4 @@
-package com.examples
+package com.example.vitbatch1
 
 import android.os.Bundle
 import android.util.Log
@@ -11,11 +11,16 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.firstkotlin.databinding.ActivityHomeBinding
 import com.examples.Item
 import com.examples.ItemDao
 import com.examples.ItemRoomDatabase
-import com.example.firstkotlin.databinding.ActivityHomeBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.last
+import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
@@ -34,6 +39,17 @@ class HomeActivity : AppCompatActivity() {
 
         binding.btnDbInsert.setOnClickListener{
             insertDataDb()
+        }
+
+        binding.btnFind.setOnClickListener{
+            findItemDb(21)
+        }
+    }
+
+    private fun findItemDb(id: Int) {
+        GlobalScope.launch(Dispatchers.Main) {
+            var item = dao.getItem(id).first()
+            binding.tvHome.setText(item.itemName)
         }
     }
 
